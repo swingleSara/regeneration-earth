@@ -5,7 +5,7 @@ const filesController = require("../controllers/files");
 const { ensureAuth } = require("../middleware/auth");
 
 //File Routes
-router.get("/:id", ensureAuth, filesController.getFile);
+router.get("/:id", filesController.getFile);
 
 //Enables user to create file
 router.post("/createFile", filesController.createFile);
