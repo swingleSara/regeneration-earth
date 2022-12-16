@@ -35,11 +35,11 @@ module.exports = {
   },
   deleteFile: async (req, res) => {
     try {
-      await File.remove({ _id: req.params.id });
+      await File.deleteOne({ _id: req.params.id });
       console.log("Deleted file");
       res.redirect("/profile");
     } catch (err) {
-      res.redirect("/profile");
+      console.log(err);
     }
   },
 };
