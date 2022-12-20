@@ -1,5 +1,7 @@
+//Dependencies
 const mongoose = require("mongoose");
 
+//Connec to MongoDB database
 const connectDB = async () => {
   try {
     const conn = await mongoose.connect(process.env.DB_STRING, {
@@ -14,4 +16,5 @@ const connectDB = async () => {
   }
 };
 
+//Exports
 module.exports = connectDB;
