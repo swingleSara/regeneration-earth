@@ -1,7 +1,9 @@
+//Dependencies
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 const User = require("../models/User");
 
+//Local authorization methods
 module.exports = function (passport) {
   passport.use(
     new LocalStrategy(
