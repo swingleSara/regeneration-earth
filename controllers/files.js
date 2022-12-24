@@ -1,6 +1,9 @@
+//Dependencies
 const File = require("../models/File");
 
+//Exports
 module.exports = {
+  //Render profile view
   getProfile: async (req, res) => {
     console.log(req.user);
     try {
@@ -10,6 +13,7 @@ module.exports = {
       console.log(err);
     }
   },
+  //Render file view
   getFile: async (req, res) => {
     try {
       const file = await File.findById(req.params.id);
@@ -19,6 +23,7 @@ module.exports = {
       console.log(err);
     }
   },
+  //Create file document in database collection
   createFile: async (req, res) => {
     const generateCode = Math.floor(Math.random() * 100000);
     try {
@@ -34,6 +39,7 @@ module.exports = {
       console.log(err);
     }
   },
+  //Delete file document from database collection
   deleteFile: async (req, res) => {
     try {
       await File.deleteOne({ _id: req.params.id });
