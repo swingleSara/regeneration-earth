@@ -1,13 +1,14 @@
+//Dependencies
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
 
-// @desc    Google Authentication
-// @route   GET /auth/google
+//Google Authentication
+//Get /auth/google route
 router.get("/google", passport.authenticate("google", { scope: ["profile"] }));
 
-// @desc    Google Authentication Callback
-// @route   GET /auth/google/callback
+//Google Authentication Callback
+//Get /auth/google/callback route
 router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
@@ -16,8 +17,8 @@ router.get(
   }
 );
 
-// @desc    Logout User
-// @route   GET /auth/logout
+//Logout User
+//Get /auth/logout route
 router.get("/logout", (req, res, next) => {
   req.logout(function (err) {
     if (err) {
@@ -27,4 +28,5 @@ router.get("/logout", (req, res, next) => {
   });
 });
 
+//Exports
 module.exports = router;
