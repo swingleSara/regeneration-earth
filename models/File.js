@@ -1,5 +1,7 @@
+//Dependencies
 const mongoose = require("mongoose");
 
+//Schema
 const FileSchema = new mongoose.Schema({
   client: {
     type: String,
@@ -28,5 +30,6 @@ const FileSchema = new mongoose.Schema({
   },
 });
 
-//MongoDB Collection named here - will give lowercase plural of name
+//Exports
+//The MongoDB collection named here - will give lowercase plural of name in collection
 module.exports = mongoose.model("File", FileSchema);
