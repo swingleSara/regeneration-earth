@@ -1,3 +1,4 @@
+//Dependencies
 const express = require("express");
 const router = express.Router();
 const authController = require("../controllers/auth");
@@ -16,4 +17,5 @@ router.get("/logout", authController.logout);
 router.get("/signup", authController.getSignup);
 router.post("/signup", authController.postSignup);
 
+//Exports
 module.exports = router;
