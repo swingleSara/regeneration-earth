@@ -32,6 +32,7 @@ module.exports = {
         link: req.body.link,
         code: generateCode,
         user: req.user.id,
+        word: req.body.word,
       });
       console.log("Link has been added and a code created!");
       res.redirect("/profile");
