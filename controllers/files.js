@@ -17,8 +17,16 @@ module.exports = {
   getFile: async (req, res) => {
     try {
       const file = await File.findById(req.params.id);
+      const link = await File.findById(req.params.link);
       const code = await File.findById(req.params.code);
-      res.render("file.ejs", { file: file, user: req.user, code: code });
+      const word = await File.findById(req.params.word);
+      res.render("file.ejs", {
+        file: file,
+        user: req.user,
+        link: link,
+        code: code,
+        word: word,
+      });
     } catch (err) {
       console.log(err);
     }
