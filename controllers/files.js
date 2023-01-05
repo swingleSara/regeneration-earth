@@ -8,7 +8,13 @@ module.exports = {
     console.log(req.user);
     try {
       const files = await File.find({ user: req.user.id });
-      res.render("profile.ejs", { files: files, user: req.user });
+      let arrOfFiles = files.slice(0);
+      arrOfFiles.sort((a, b) => {
+        let x = a.client.toLowerCase();
+        let y = b.client.toLowerCase();
+        return x < y ? -1 : x > y ? 1 : 0;
+      });
+      res.render("profile.ejs", { files: arrOfFiles, user: req.user });
     } catch (err) {
       console.log(err);
     }
