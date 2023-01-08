@@ -1,5 +1,5 @@
 <%- include('partials/header') -%>
-<div class="container">
+<div class="container mt-5">
   <div class="row mt-5">
       <div class="col-6">
           <div>
@@ -29,7 +29,7 @@
       <div class="col-6">
         <ul class="list-unstyled">
           <% for(var i=0; i<files.length; i++) {%>
-            <li class="col-6 justify-content-between mt-5">
+            <li class="col-6 justify-content-between mt-1">
               <a href="/file/<%= files[i]._id%>">
                 <h2><%= files[i].client %></h2>
               </a>
