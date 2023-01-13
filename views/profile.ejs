@@ -1,7 +1,7 @@
 <%- include('partials/header') -%>
 <div class="container">
   <div class="row mt-1">
-    <div class="col-6 affix">
+    <div class="col-6 fixed-top">
       <div>
           <p><strong>User Name</strong>: <%= user.userName %></p>
           <p><strong>Email</strong>: <%= user.email %></p>
@@ -26,7 +26,7 @@
         </form>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-6 offset-sm-6">
       <ul class="list-unstyled">
         <% for(var i=0; i<files.length; i++) {%>
           <li class="col-6 justify-content-between mt-1">
