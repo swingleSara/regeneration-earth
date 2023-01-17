@@ -2,3 +2,7 @@ body {
   padding-top: 70px;
   overflow-x: hidden;
 }
+
+#left-col {
+  padding-top: 70px;
+}
