@@ -30,7 +30,7 @@
       <ul class="list-unstyled">
         <% for(var i=0; i<files.length; i++) {%>
           <li class="col-6 justify-content-between mt-1">
-            <a href="/file/<%= files[i]._id%>">
+            <a href="/file/<%= files[i]._id%>" class="link-info">
               <h2><%= files[i].client %>  <%= files[i].createdAt.toDateString() %></h2>
             </a>
           </li>
