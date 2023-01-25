@@ -11,6 +11,7 @@
         role="group"
         aria-label="Basic example"
       >
+        <%if(file.user == user.id){ %>
         <form
           action="/file/deleteFile/<%= file.id %>?_method=DELETE"
           method="POST"
@@ -18,6 +19,7 @@
         >
           <button class="btn btn-primary fa fa-trash" type="submit"></button>
         </form>
+        <%}%>
         <form action="/profile">
           <button
             class="btn btn-primary fa fa-arrow-left"
