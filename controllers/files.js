@@ -18,7 +18,7 @@ module.exports = {
       console.log(err);
     }
   },
-  //Render file view
+  //Render guest view
   getFile: async (req, res) => {
     try {
       const file = await File.findById(req.params.id);
@@ -27,7 +27,6 @@ module.exports = {
       const word = await File.findById(req.params.word);
       res.render("guest.ejs", {
         file: file,
-        user: req.user,
         link: link,
         code: code,
         word: word,
