@@ -14,4 +14,5 @@ body {
 .btn {
   color: #e7e6de;
   background-color: #a4aeaa;
+  border-radius: 0;
 }
