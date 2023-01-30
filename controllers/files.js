@@ -25,7 +25,7 @@ module.exports = {
       const link = await File.findById(req.params.link);
       const code = await File.findById(req.params.code);
       const word = await File.findById(req.params.word);
-      res.render("file.ejs", {
+      res.render("guest.ejs", {
         file: file,
         user: req.user,
         link: link,
