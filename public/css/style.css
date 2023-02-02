@@ -1,3 +1,7 @@
+* {
+  font-family: "Lora", serif;
+}
+
 body {
   padding-top: 70px;
   overflow-x: hidden;
