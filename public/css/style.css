@@ -24,3 +24,7 @@ body {
 .link-info {
   color: #b77f45;
 }
+
+.link-info:hover {
+  color: #dbc0a3;
+}
