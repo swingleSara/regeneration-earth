@@ -22,6 +22,7 @@ body {
 .btn {
   color: #72744f;
   background-color: #cac496;
+  font-weight: bold;
 }
 
 .link-info {
