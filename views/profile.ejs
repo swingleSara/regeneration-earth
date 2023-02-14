@@ -1,6 +1,7 @@
 <%- include('partials/header') -%>
 <div class="container">
   <div class="row mt-1">
+    <!--Left half-->
     <div id="left-col" class="col-6 fixed-top bkg">
       <div>
           <p><strong>User Name</strong>: <%= user.userName %></p>
@@ -25,6 +26,7 @@
         </form>
       </div>
     </div>
+    <!--Right half-->
     <div class="offset-sm-6">
       <ul class="list-unstyled">
         <% for(var i=0; i<files.length; i++) {%>
