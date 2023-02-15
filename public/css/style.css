@@ -27,6 +27,7 @@ body {
 
 .link-info {
   color: #b77f45;
+  font-weight: bold;
 }
 
 .link-info:hover {
