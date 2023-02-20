@@ -3,7 +3,7 @@
 }
 
 body {
-  padding-top: 70px;
+  padding-bottom: 70px;
   overflow-x: hidden;
 }
 
@@ -11,12 +11,12 @@ body {
   background-color: #b77f45;
 }
 
-#left-col {
-  padding-top: 70px;
-}
-
 #regen-earth {
   color: #72744f;
+}
+
+#navbottom {
+  background-color: #b77f45;
 }
 
 .btn {
