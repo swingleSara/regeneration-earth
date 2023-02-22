@@ -3,7 +3,11 @@ const mongoose = require("mongoose");
 
 //Schema
 const FileSchema = new mongoose.Schema({
-  client: {
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
     type: String,
     required: true,
   },
