@@ -42,7 +42,8 @@ module.exports = {
     const generateCode = Math.floor(Math.random() * 100000);
     try {
       await File.create({
-        client: req.body.client,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         link: req.body.link,
         code: generateCode,
         user: req.user.id,
