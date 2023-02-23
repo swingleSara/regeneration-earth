@@ -36,7 +36,7 @@
         <% for(var i=0; i<files.length; i++) {%>
           <li class="col-6 list-group-item mt-1">
             <a href="/file/<%= files[i]._id%>" class="link-info">
-              <span><%= files[i].client %>  <%= files[i].createdAt.toDateString() %></span>
+              <span><%= files[i].lastName %>, <%= files[i].firstName %>  <%= files[i].createdAt.toDateString() %></span>
             </a>
           </li>
         <% } %>
