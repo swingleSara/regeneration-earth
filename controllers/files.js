@@ -10,8 +10,8 @@ module.exports = {
       const files = await File.find({ user: req.user.id });
       let arrOfFiles = files.slice(0);
       arrOfFiles.sort((a, b) => {
-        let x = a.client.toLowerCase();
-        let y = b.client.toLowerCase();
+        let x = a.lastName.toLowerCase();
+        let y = b.lastName.toLowerCase();
         return x < y ? -1 : x > y ? 1 : 0;
       });
       res.render("profile.ejs", { files: arrOfFiles, user: req.user });
