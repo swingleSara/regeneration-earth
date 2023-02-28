@@ -11,6 +11,10 @@ body {
   background-color: #72744f;
 }
 
+.bkg-light {
+  background-color: #e7e6de;
+}
+
 #regen-earth {
   color: #e7e6de;
   font-weight: bold;

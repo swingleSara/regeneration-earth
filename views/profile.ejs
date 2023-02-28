@@ -12,19 +12,19 @@
         <form action="/file/createFile" enctype="application/x-www-form-urlencoded" method="POST">
           <div class="mb-3">
             <label for="firstName" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstName" name="firstName">
+            <input type="text" class="form-control bkg-light" id="firstName" name="firstName">
           </div>
           <div class="mb-3">
             <label for="lastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control" id="lastName" name="lastName">
+            <input type="text" class="form-control bkg-light" id="lastName" name="lastName">
           </div>
           <div class="mb-3">
             <label for="link" class="form-label">Link</label>
-            <input type="text" class="form-control" id="link" name="link">
+            <input type="text" class="form-control bkg-light" id="link" name="link">
           </div>
           <div class="mb-3">
               <label for="word" class="form-label">Word</label>
-              <input type="text" class="form-control" id="word" name="word">
+              <input type="text" class="form-control bkg-light" id="word" name="word">
           </div>
           <button type="submit" class="btn btn-lg form-control" value="Upload">Submit</button>
         </form>
@@ -34,7 +34,7 @@
     <div class="offset-sm-6">
       <ul class="list-group list-group-flush">
         <% for(var i=0; i<files.length; i++) {%>
-          <li class="col-6 list-group-item mt-1">
+          <li class="col-6 list-group-item mt-1 bkg-light">
             <a href="/file/<%= files[i]._id%>" class="link-info">
               <span><%= files[i].lastName %>, <%= files[i].firstName %>  <%= files[i].createdAt.toDateString() %></span>
             </a>
