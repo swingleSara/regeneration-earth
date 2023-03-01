@@ -30,6 +30,11 @@ body {
   font-weight: bold;
 }
 
+.btn-index {
+  color: #e7e6de;
+  background-color: #72744f;
+}
+
 .link-info {
   color: #72744f;
   font-weight: bold;
