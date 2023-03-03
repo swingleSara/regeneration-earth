@@ -10,8 +10,8 @@ module.exports = {
       const files = await File.find({ user: req.user.id });
       let arrOfFiles = files.slice(0);
       arrOfFiles.sort((a, b) => {
-        const result = a.firstName.localeCompare(b.firstName);
-        return result !== 0 ? result : a.lastName.localeCompare(b.lastName);
+        const result = a.lastName.localeCompare(b.lastName);
+        return result !== 0 ? result : a.firstName.localeCompare(b.firstName);
       });
       res.render("profile.ejs", { files: arrOfFiles, user: req.user });
     } catch (err) {
