@@ -1,0 +1,23 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-6">
+      <h2><%= file.client %></h2>
+      <h3><%= file.link %></h3>
+      <h3><%= file.code %></h3>
+      <div class="row justify-content-between">
+        <%if(file.user == user.id){ %>
+        <form
+          action="/file/deleteFile/<%= file.id %>?_method=DELETE"
+          method="POST"
+          class="col-3"
+        >
+          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+        </form>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

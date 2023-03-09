@@ -1,0 +1,39 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="row mt-5">
+      <div class="col-6">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+          </div>
+          <div class="mt-5">
+            <h2>Add a file</h2>
+            <form action="/file/createFile" enctype="application/x-www-form-urlencoded" method="POST">
+              <div class="mb-3">
+                  <label for="client" class="form-label">Client</label>
+                  <input type="text" class="form-control" id="client" name="client">
+              </div>
+              <div class="mb-3">
+                  <label for="link" class="form-label">Link</label>
+                  <input type="text" class="form-control" id="link" name="link">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      </div>
+      <div class="col-6">
+        <ul class="row list-unstyled">
+          <% for(var i=0; i<files.length; i++) {%>
+            <li class="col-6 justify-content-between mt-5">
+              <a href="/file/<%= files[i]._id%>">
+                <h2><%= files[i].client.sort((a,b) => a - b,0) %></h2>
+              </a>
+            </li>
+          <% } %>
+        </ul>  
+      </div>  
+    </div>
+  </div>
+</div>
+<%- include('partials/footer') -%>
