@@ -7,7 +7,7 @@ const { ensureAuth } = require("../middleware/auth");
 router.get("/:id", ensureAuth, filesController.getFile);
 
 //Enables user to create file
-router.post("/createFile", upload.single("file"), filesController.createFile);
+router.post("/createFile", filesController.createFile);
 
 //Enables user to delete file. In controller, uses POST model to delete file from MongoDB collection
 router.delete("/deleteFile/:id", filesController.deleteFile);
