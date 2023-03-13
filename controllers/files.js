@@ -19,11 +19,12 @@ module.exports = {
     }
   },
   createFile: async (req, res) => {
+    const generateCode = Math.floor(Math.random() * 1000000);
     try {
       await File.create({
         client: req.body.client,
         link: req.body.link,
-        code: { $floor: { $multiply: [{ $rand: {} }, 1000000] } },
+        code: generateCode,
         user: req.user.id,
       });
       console.log("Link has been added and a code created!");

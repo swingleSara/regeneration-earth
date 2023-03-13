@@ -18,7 +18,7 @@ const FileSchema = new mongoose.Schema({
     ref: "User",
   },
   code: {
-    type: Number,
+    type: Object,
     required: true,
     unique: true,
   },

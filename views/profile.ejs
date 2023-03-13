@@ -27,7 +27,7 @@
           <% for(var i=0; i<files.length; i++) {%>
             <li class="col-6 justify-content-between mt-5">
               <a href="/file/<%= files[i]._id%>">
-                <h2><%= files[i].client.sort((a,b) => a - b,0) %></h2>
+                <h2><%= files[i].client %></h2>
               </a>
             </li>
           <% } %>
