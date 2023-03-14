@@ -68,7 +68,7 @@ module.exports = {
   //Delete file document from database collection
   deleteFile: async (req, res) => {
     try {
-      await File.deleteOne({ _id: req.params.id });
+      await File.remove({ _id: req.params.id });
       console.log("Deleted file");
       res.redirect("/profile");
     } catch (err) {
