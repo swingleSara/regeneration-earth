@@ -20,7 +20,7 @@ module.exports = {
     }
   },
   createFile: async (req, res) => {
-    const generateCode = Math.floor(Math.random() * 1000000);
+    const generateCode = Math.floor(Math.random() * 100000);
     try {
       await File.create({
         client: req.body.client,
