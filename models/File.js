@@ -22,6 +22,10 @@ const FileSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  word: {
+    type: String,
+    required: true,
+  },
 });
 
 //MongoDB Collection named here - will give lowercase plural of name
