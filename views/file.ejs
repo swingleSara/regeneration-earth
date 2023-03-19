@@ -6,8 +6,11 @@
       <h3>Code: <%= file.code %></h3>
       <h3>Link: <%= file.link %></h3>
       <h3>Secret word: <%= file.word %></h3>
-      <div class="row justify-content-between">
-        <%if(file.user == user.id){ %>
+      <div
+        class="row justify-content-between btn-group"
+        role="group"
+        aria-label="Basic example"
+      >
         <form
           action="/file/deleteFile/<%= file.id %>?_method=DELETE"
           method="POST"
@@ -15,9 +18,6 @@
         >
           <button class="btn btn-primary fa fa-trash" type="submit"></button>
         </form>
-        <%}%>
-      </div>
-      <div>
         <form action="/profile">
           <button
             class="btn btn-primary fa fa-arrow-left"
