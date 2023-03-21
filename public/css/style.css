@@ -8,31 +8,31 @@ body {
 }
 
 .bkg {
-  background-color: #b77f45;
+  background-color: #72744f;
 }
 
 #regen-earth {
-  color: #72744f;
+  color: #e7e6de;
   font-weight: bold;
 }
 
 #navbottom {
-  background-color: #b77f45;
+  background-color: #72744f;
 }
 
 .btn {
   color: #72744f;
-  background-color: #cac496;
+  background-color: #e7e6de;
   font-weight: bold;
 }
 
 .link-info {
-  color: #b77f45;
+  color: #72744f;
   font-weight: bold;
 }
 
 .link-info:hover {
-  color: #dbc0a3;
+  color: #babaa8;
 }
 
 .fnt-wht {
