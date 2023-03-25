@@ -44,6 +44,11 @@ body {
   color: #babaa8;
 }
 
+.link-wishes,
+.link-wishes:hover {
+  color: #babaa8;
+}
+
 .fnt-wht {
   color: white;
 }

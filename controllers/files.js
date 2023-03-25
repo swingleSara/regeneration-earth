@@ -24,7 +24,6 @@ module.exports = {
         code: req.query.code,
         word: req.query.word,
       });
-      console.log(pair.link);
       res.render("client.ejs", { pair: pair });
     } catch (err) {
       console.log(err);
