@@ -5,9 +5,8 @@ const File = require("../models/File");
 module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
-    console.log(req.user);
     try {
-      const files = await File.find({ user: req.user.id });
+      const files = await File.find({ user: req.user.id }).lean();
       let arrOfFiles = files.slice(0);
       arrOfFiles.sort((a, b) => {
         const result = a.lastName.localeCompare(b.lastName);
@@ -21,32 +20,34 @@ module.exports = {
   //Render client view
   getClient: async (req, res) => {
     try {
-      const pair = await File.find(
-        { word: req.params.word } && { code: req.params.code }
-      );
+      const pair = await File.findOne({
+        code: req.query.code,
+        word: req.query.word,
+      });
+      console.log(pair.link);
       res.render("client.ejs", { pair: pair });
     } catch (err) {
       console.log(err);
     }
   },
-  //Render file view
-  getFile: async (req, res) => {
-    try {
-      const file = await File.findById(req.params.id);
-      const link = await File.findById(req.params.link);
-      const code = await File.findById(req.params.code);
-      const word = await File.findById(req.params.word);
-      res.render("file.ejs", {
-        file: file,
-        user: req.user,
-        link: link,
-        code: code,
-        word: word,
-      });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  // //Render file view
+  // getFile: async (req, res) => {
+  //   try {
+  //     const file = await File.findById(req.params.id);
+  //     const link = await File.findById(req.params.link);
+  //     const code = await File.findById(req.params.code);
+  //     const word = await File.findById(req.params.word);
+  //     res.render("file.ejs", {
+  //       file: file,
+  //       user: req.user,
+  //       link: link,
+  //       code: code,
+  //       word: word,
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
   //Create file document in database collection
   createFile: async (req, res) => {
     const generateCode = Math.floor(Math.random() * 100000);

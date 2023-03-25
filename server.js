@@ -58,6 +58,7 @@ app.use(flash());
 app.use("/", mainRoutes);
 app.use("/file", fileRoutes);
 app.use("/home", mainRoutes);
+app.use("/client", fileRoutes);
 
 //Server Running
 app.listen(process.env.PORT || PORT, () => {
