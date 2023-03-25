@@ -14,7 +14,7 @@ module.exports = function (passport) {
           user = await User.findOne({ email: email.toLowerCase() });
           console.log(user);
           if (!user) {
-            return done(null, false, { message: "No user by that email" });
+            return done(null, false, { msg: "No user by that email" });
           }
           if (!user.password) {
             return done(null, false, {
@@ -27,7 +27,7 @@ module.exports = function (passport) {
 
         let match = await user.comparePassword(password);
         if (!match) {
-          return done(null, false, { message: "Not a matching password" });
+          return done(null, false, { msg: "Not a matching password" });
         }
 
         return done(null, user);
