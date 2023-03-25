@@ -4,7 +4,7 @@ const router = express.Router();
 const filesController = require("../controllers/files");
 const { ensureAuth } = require("../middleware/auth");
 
-//File Routes
+//File routes
 router.get("/:id", ensureAuth, filesController.getFile);
 
 //Enables user to create file

@@ -18,6 +18,17 @@ module.exports = {
       console.log(err);
     }
   },
+  //Render client view
+  getClient: async (req, res) => {
+    try {
+      const pair = await File.find(
+        { word: req.params.word } && { code: req.params.code }
+      );
+      res.render("client.ejs", { pair: pair });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   //Render file view
   getFile: async (req, res) => {
     try {
