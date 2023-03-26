@@ -2,7 +2,6 @@
 const express = require("express");
 const router = express.Router();
 const filesController = require("../controllers/files");
-const { ensureAuth } = require("../middleware/auth");
 
 //File routes
 // router.get("/:id", ensureAuth, filesController.getFile);
