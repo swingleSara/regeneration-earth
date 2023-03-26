@@ -56,8 +56,7 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
-app.use("/file", fileRoutes);
-app.use("/home", mainRoutes);
+app.use("/profile", fileRoutes);
 app.use("/client", fileRoutes);
 
 //Server Running
