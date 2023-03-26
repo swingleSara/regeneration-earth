@@ -1,53 +1,45 @@
 //Dependencies
-const LocalStrategy = require("passport-local").Strategy;
-const mongoose = require("mongoose");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+const mongooge = require("mongoose");
 const User = require("../models/User");
 
-//Local authorization methods
+//Exports
 module.exports = function (passport) {
   passport.use(
-    new LocalStrategy(
-      { usernameField: "email" },
-      async (email, password, done) => {
-        let user;
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: "/auth/google/callback",
+      },
+      async (accessToken, refreshToken, profile, done) => {
+        const newUser = {
+          googleId: profile.id,
+          displayName: profile.displayName,
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
+          image: profile.photos[0].value,
+        };
         try {
-          user = await User.findOne({ email: email.toLowerCase() });
-          console.log(user);
-          if (!user) {
-            return done(null, false, { msg: "No user by that email" });
-          }
-          if (!user.password) {
-            return done(null, false, {
-              msg: "Your account was registered using a sign-in provider. To enable password login, sign in using a provider, and then set a password under your user profile.",
-            });
+          let user = await User.findOne({ googleId: profile.id });
+          if (user) {
+            done(null, user);
+          } else {
+            user = await User.create(newUser);
+            done(null, user);
           }
         } catch (err) {
-          return done(err);
+          console.error(err);
         }
-
-        let match = await user.comparePassword(password);
-        if (!match) {
-          return done(null, false, { msg: "Not a matching password" });
-        }
-
-        return done(null, user);
       }
     )
   );
 
-  passport.serializeUser((user, done) => {
-    done(null, user.id);
-  });
+  //Serialize User
+  passport.serializeUser((user, done) => done(null, user.id));
 
-  passport.deserializeUser(async (id, done) => {
-    try {
-      let user = await User.findById(id);
-      if (!user) {
-        return done(new Error("user not found"));
-      }
-      done(null, user);
-    } catch (err) {
-      console.error(err);
-    }
+  //Deserialize User
+  passport.deserializeUser((user, done) => {
+    process.nextTick(() => done(null, user));
   });
 };

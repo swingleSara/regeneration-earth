@@ -10,12 +10,13 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const fileRoutes = require("./routes/files");
+const authRoutes = require("./routes/auth");
 const PORT = 3000;
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
-// Passport config
+//Passport config
 require("./config/passport")(passport);
 
 //Connect To Database
@@ -59,6 +60,7 @@ app.use("/", mainRoutes);
 app.use("/file", fileRoutes);
 app.use("/home", mainRoutes);
 app.use("/client", fileRoutes);
+app.use("/auth", authRoutes);
 
 //Server Running
 app.listen(process.env.PORT || PORT, () => {
