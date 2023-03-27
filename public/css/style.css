@@ -66,8 +66,14 @@ body {
   color: white;
 }
 
-.accordion-header,
+.accordion,
+.accordion-flush,
 .accordion-item,
-.accordion-button {
+.accordion-header,
+.accordion-button,
+.collapsed,
+.accordion-collapse,
+.collapse,
+.accordion-body {
   background: rgba(231, 230, 222, 0.5);
 }
