@@ -74,6 +74,7 @@ body {
 .collapsed,
 .accordion-collapse,
 .collapse,
-.accordion-body {
+.accordion-body,
+#files {
   background: rgba(231, 230, 222, 0.5);
 }
