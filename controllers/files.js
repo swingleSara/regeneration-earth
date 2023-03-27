@@ -6,13 +6,21 @@ module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
     try {
+      const user = await User.findOne({
+        user: req.user.id,
+        admin: { $ne: true },
+      });
       const files = await File.find({ user: req.user.id }).lean();
       let arrOfFiles = files.slice(0);
       arrOfFiles.sort((a, b) => {
         const result = a.lastName.localeCompare(b.lastName);
         return result !== 0 ? result : a.firstName.localeCompare(b.firstName);
       });
-      res.render("profile.ejs", { files: arrOfFiles });
+      if (user) {
+        res.render("profile.ejs", { files: arrOfFiles });
+      } else {
+        res.redirect("/");
+      }
     } catch (err) {
       console.log(err);
     }
