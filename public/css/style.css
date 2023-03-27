@@ -5,6 +5,11 @@
 body {
   padding-bottom: 70px;
   overflow-x: hidden;
+  background: url("../imgs/regen-bkg.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .bkg {
@@ -13,6 +18,14 @@ body {
 
 .bkg-light {
   background-color: #e7e6de;
+}
+
+.bkg-img {
+  background: url("../imgs/regen-bkg.jpeg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #regen-earth {
