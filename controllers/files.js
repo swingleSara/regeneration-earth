@@ -1,5 +1,6 @@
 //Dependencies
 const File = require("../models/File");
+const User = require("../models/User");
 
 //Exports
 module.exports = {
