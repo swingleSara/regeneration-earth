@@ -31,16 +31,16 @@
     <!--Right half-->
     <div class="offset-sm-6 bkg-img">
       <div class="container">
-        <div class="accordion accordion-flush" id="files">
+        <div class="accordion accordion-flush bkg-fade" id="files">
           <% for(let i=0; i<files.length; i++) {%>
-            <div class="accordion-item">
-              <h2 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#files-<%=i%>">
+            <div class="accordion-item bkg-fade">
+              <h2 class="accordion-header bkg-fade">
+                <button class="accordion-button collapsed bkg-fade" type="button" data-bs-toggle="collapse" data-bs-target="#files-<%=i%>">
                   <div><%= files[i].lastName %>, <%= files[i].firstName %>  <%= files[i].createdAt.toDateString() %></div>
                 </button>
               </h2>
-              <div id="files-<%=i%>" class="accordion-collapse collapse" data-bs-parent="#files">
-                <div class="accordion-body">
+              <div id="files-<%=i%>" class="accordion-collapse collapse bkg-fade" data-bs-parent="#files">
+                <div class="accordion-body bkg-fade">
                   <div><a href="<%=files[i].link %>">Google Folder Link</a></div>
                   <div>Code: <%=files[i].code %></div>
                   <div>Secret Word: <%=files[i].word %></div>
