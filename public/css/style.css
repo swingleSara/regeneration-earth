@@ -66,6 +66,8 @@ body {
   color: white;
 }
 
-.accordion {
+.accordion-header,
+.accordion-item,
+.accordion-button {
   background: rgba(231, 230, 222, 0.5);
 }
