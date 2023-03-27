@@ -5,5 +5,5 @@ module.exports = {
     } else {
       res.redirect("/");
     }
-  }
+  },
 };

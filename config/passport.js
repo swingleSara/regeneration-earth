@@ -1,6 +1,6 @@
 //Dependencies
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const mongooge = require("mongoose");
+const mongoose = require("mongoose");
 const User = require("../models/User");
 require("dotenv").config();
 
