@@ -10,6 +10,7 @@ const logger = require("morgan");
 const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const fileRoutes = require("./routes/files");
+const authRoutes = require("./routes/auth");
 const PORT = 3000;
 
 //Use .env file in config folder
@@ -56,8 +57,10 @@ app.use(flash());
 
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
-app.use("/profile", fileRoutes);
+app.use("/file", fileRoutes);
+app.use("/home", mainRoutes);
 app.use("/client", fileRoutes);
+app.use("/auth", authRoutes);
 
 //Server Running
 app.listen(process.env.PORT || PORT, () => {
