@@ -12,7 +12,7 @@ module.exports = {
         const result = a.lastName.localeCompare(b.lastName);
         return result !== 0 ? result : a.firstName.localeCompare(b.firstName);
       });
-      res.render("profile.ejs", { files: arrOfFiles, user: req.user });
+      res.render("profile.ejs", { files: arrOfFiles });
     } catch (err) {
       console.log(err);
     }
