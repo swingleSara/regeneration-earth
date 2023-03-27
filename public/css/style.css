@@ -65,3 +65,7 @@ body {
 .fnt-wht {
   color: white;
 }
+
+.accordian-item {
+  background: rgba(231, 230, 222, 0.5);
+}
