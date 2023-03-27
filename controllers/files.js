@@ -1,27 +1,18 @@
 //Dependencies
 const File = require("../models/File");
-const User = require("../models/User");
 
 //Exports
 module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
     try {
-      const user = await User.findOne({
-        user: req.user.id,
-        admin: { $ne: true },
-      });
       const files = await File.find({ user: req.user.id }).lean();
       let arrOfFiles = files.slice(0);
       arrOfFiles.sort((a, b) => {
         const result = a.lastName.localeCompare(b.lastName);
         return result !== 0 ? result : a.firstName.localeCompare(b.firstName);
       });
-      if (user) {
-        res.render("profile.ejs", { files: arrOfFiles });
-      } else {
-        res.redirect("/");
-      }
+      res.render("profile.ejs", { files: arrOfFiles, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -38,7 +29,24 @@ module.exports = {
       console.log(err);
     }
   },
-
+  // //Render file view
+  // getFile: async (req, res) => {
+  //   try {
+  //     const file = await File.findById(req.params.id);
+  //     const link = await File.findById(req.params.link);
+  //     const code = await File.findById(req.params.code);
+  //     const word = await File.findById(req.params.word);
+  //     res.render("file.ejs", {
+  //       file: file,
+  //       user: req.user,
+  //       link: link,
+  //       code: code,
+  //       word: word,
+  //     });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
   //Create file document in database collection
   createFile: async (req, res) => {
     const generateCode = Math.floor(Math.random() * 100000);
