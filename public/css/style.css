@@ -69,3 +69,8 @@ body {
 .bkg-fade {
   background: rgba(231, 230, 222, 0.3);
 }
+
+.bkg-fade:active {
+  background-color: #e7e6de;
+  border-color: #72744f;
+}
