@@ -74,3 +74,9 @@ body {
   background-color: #e7e6de;
   border-color: #72744f;
 }
+
+.accordion-button:not(.collapsed) {
+  color: #72744f;
+  background-color: #e7e6de;
+  border-color: #72744f;
+}
