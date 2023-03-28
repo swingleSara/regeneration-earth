@@ -1,7 +1,12 @@
 <%- include('partials/header') -%>
 
 <section class="d-flex justify-content-center align-items-center large">
-  <div class="div section"></div>
+  <div class="div section">
+    <!--invisible class added here to restrict access and to make it easy to toggle on/off if new users are needed-->
+    <a href="/" class="btn btn-index invisible">
+      <i class="fab fa-google left"></i>Log In With Google
+    </a>
+  </div>
 </section>
 
 <%- include('partials/footer') -%>
