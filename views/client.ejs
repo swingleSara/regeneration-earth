@@ -12,8 +12,13 @@
           <input type="text" class="form-control-lg bkg-light" id="word" name="word">
         </div>
         <div class="d-flex justify-content-center">
-        <button type="submit" class="btn form-control-lg form-label d-flex justify-content-center align-items-center" data-bs-target="#linkModal">Submit</button>
+        <button type="submit" class="btn form-control-lg form-label d-flex justify-content-center align-items-center" data-bs-toggle="collapse" data-bs-target="#linkBtn">Submit</button>
       </form>
+    </div>
+    <div id="linkBtn" class="collapsed">
+      <% if (pair) { %>
+          <div class="text-center"><button type="submit" class="btn btn-lg btn-index"><a class="link-wishes" href="<%=pair.link %>">My Final Wishes</a></button></div>
+      <% } %>
     </div>
   </div>
 </div>
