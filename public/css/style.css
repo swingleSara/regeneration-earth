@@ -37,7 +37,8 @@ body {
   background-color: #72744f;
 }
 
-.btn {
+.btn,
+.switch {
   color: #72744f;
   background-color: #e7e6de;
   font-weight: bold;
