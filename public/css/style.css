@@ -28,7 +28,9 @@ body {
   background-size: cover;
 }
 
-#regen-earth {
+#regen-earth,
+.navbar-link,
+.navbar-link:hover {
   color: #e7e6de;
   font-weight: bold;
 }
