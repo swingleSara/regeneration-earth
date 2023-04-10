@@ -6,6 +6,7 @@ module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
     try {
+      console.log(req);
       const files = await File.find({ user: req.user.id }).lean();
       let arrOfFiles = files.slice(0);
       arrOfFiles.sort((a, b) => {
