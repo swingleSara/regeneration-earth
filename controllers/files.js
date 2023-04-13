@@ -6,11 +6,11 @@ module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
     try {
+      console.log(req.user);
       if (
-        req.user.googleId !== "105965140769894102733" ||
-        req.user.googleId !== "100547375198602010404"
+        req.user.googleId != "105965140769894102733" ||
+        req.user.googleId != "100547375198602010404"
       ) {
-        console.log(req.user.googleId);
         res.redirect("/");
       }
       const files = await File.find({ user: req.user.id }).lean();
