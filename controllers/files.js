@@ -5,14 +5,8 @@ const File = require("../models/File");
 module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
+    console.log(req.user);
     try {
-      console.log(req.user);
-      if (
-        req.user.googleId != "105965140769894102733" ||
-        req.user.googleId != "100547375198602010404"
-      ) {
-        res.redirect("/");
-      }
       const files = await File.find({ user: req.user.id }).lean();
       let arrOfFiles = files.slice(0);
       arrOfFiles.sort((a, b) => {
