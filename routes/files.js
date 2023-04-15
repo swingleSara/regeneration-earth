@@ -4,7 +4,7 @@ const router = express.Router();
 const filesController = require("../controllers/files");
 
 //File routes
-router.get("/:id", ensureAuth, filesController.getFile);
+//router.get("/:id", ensureAuth, filesController.getFile);
 router.get("/getClient", filesController.getClient);
 
 //Enables user to create file
