@@ -5,7 +5,6 @@ const File = require("../models/File");
 module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
-    console.log(req.user);
     try {
       const files = await File.find({ user: req.user.id }).lean();
       let arrOfFiles = files.slice(0);
