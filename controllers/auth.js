@@ -6,12 +6,12 @@ const User = require("../models/User");
 //Controller methods exports
 //Login to the website for existing users
 exports.getLogin = (req, res) => {
-  if (req.user.admin === true) {
+  if (req.user) {
     return res.redirect("/profile");
-  } else {
-    req.logout();
-    res.redirect("/index");
   }
+  res.render("login", {
+    title: "Login",
+  });
 };
 
 //Create login session
