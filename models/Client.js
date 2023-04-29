@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 //Schema
-const FileSchema = new mongoose.Schema({
+const ClientSchema = new mongoose.Schema({
   firstName: {
     type: String,
     required: true,
@@ -10,6 +10,14 @@ const FileSchema = new mongoose.Schema({
   lastName: {
     type: String,
     required: true,
+  },
+  email: {
+    type: String,
+    require: true,
+  },
+  password: {
+    type: String,
+    require: true,
   },
   link: {
     type: String,
@@ -36,4 +44,4 @@ const FileSchema = new mongoose.Schema({
 
 //Exports
 //The MongoDB collection named here - will give lowercase plural of name in collection
-module.exports = mongoose.model("File", FileSchema);
+module.exports = mongoose.model("Client", ClientSchema);

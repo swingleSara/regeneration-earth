@@ -1,18 +1,18 @@
 //Dependencies
-const File = require("../models/File");
+const Client = require("../models/Client");
 
 //Exports
 module.exports = {
   //Render profile view
   getProfile: async (req, res) => {
     try {
-      const files = await File.find({ user: req.user.id }).lean();
-      let arrOfFiles = files.slice(0);
-      arrOfFiles.sort((a, b) => {
+      const clients = await Client.find({ user: req.user.id }).lean();
+      let arrOfClients = clients.slice(0);
+      arrOfClients.sort((a, b) => {
         const result = a.lastName.localeCompare(b.lastName);
         return result !== 0 ? result : a.firstName.localeCompare(b.firstName);
       });
-      res.render("profile.ejs", { files: arrOfFiles });
+      res.render("profile.ejs", { clients: arrOfclients });
     } catch (err) {
       console.log(err);
     }
@@ -20,7 +20,7 @@ module.exports = {
   //Render client view
   getClient: async (req, res) => {
     try {
-      const pair = await File.findOne({
+      const pair = await Client.findOne({
         code: req.query.code,
         word: req.query.word,
       });
@@ -47,29 +47,29 @@ module.exports = {
   //     console.log(err);
   //   }
   // },
-  //Create file document in database collection
-  createFile: async (req, res) => {
+  //Create client document in database collection
+  createClient: async (req, res) => {
     const generateCode = Math.floor(Math.random() * 100000);
     try {
-      await File.create({
+      await Client.create({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        email: req.body.email,
+        password: req.body.password,
         link: req.body.link,
         code: generateCode,
         user: req.user.id,
         word: req.body.word,
       });
-      console.log("Link has been added and a code created!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
     }
   },
-  //Delete file document from database collection
-  deleteFile: async (req, res) => {
+  //Delete client document from database collection
+  deleteClient: async (req, res) => {
     try {
-      await File.deleteOne({ _id: req.params.id });
-      console.log("Deleted file");
+      await Client.deleteOne({ _id: req.params.id });
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
