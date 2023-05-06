@@ -7,8 +7,8 @@ const User = require("../models/User");
 //Login to the website for existing users
 exports.getLogin = (req, res) => {
   if (
-    req.user.googleId === "105965140769894102733" ||
-    req.user.googleId === "100547375198602010404"
+    req.user.googleId == "105965140769894102733" ||
+    req.user.googleId == "100547375198602010404"
   ) {
     return res.redirect("/profile");
   }
