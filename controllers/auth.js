@@ -11,10 +11,11 @@ exports.getLogin = (req, res) => {
     req.user._id == "642315f4493dd552f422a7ed"
   ) {
     return res.redirect("/profile");
+  } else {
+    res.render("index", {
+      title: "Index",
+    });
   }
-  res.render("login", {
-    title: "Login",
-  });
 };
 
 //Create login session
