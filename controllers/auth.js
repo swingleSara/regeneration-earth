@@ -6,10 +6,7 @@ const User = require("../models/User");
 //Controller methods exports
 //Login to the website for existing users
 exports.getLogin = (req, res) => {
-  if (
-    req.user._id == "64226ee5a9f0ece8907e4053" ||
-    req.user._id == "642315f4493dd552f422a7ed"
-  ) {
+  if (req.user.admin === true) {
     return res.redirect("/profile");
   } else {
     req.logout();
