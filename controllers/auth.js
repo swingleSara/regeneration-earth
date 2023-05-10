@@ -12,9 +12,8 @@ exports.getLogin = (req, res) => {
   ) {
     return res.redirect("/profile");
   } else {
-    res.render("index", {
-      title: "Index",
-    });
+    req.logout();
+    res.redirect("/index");
   }
 };
 
