@@ -13,23 +13,23 @@ module.exports = function (passport) {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL:
           "https://web-production-7ff1.up.railway.app/auth/google/callback",
-      },
-      async (accessToken, refreshToken, profile, done) => {
-        const newUser = {
-          googleId: profile.id,
-          firstName: profile.name.givenName,
-          lastName: profile.name.familyName,
-          admin: false,
-        };
-        try {
-          let user = await User.findOne({ googleId: profile.id });
-          if (user.admin === true) {
-            done(null, user);
-          }
-        } catch (err) {
-          console.error(err);
-        }
       }
+      // async (accessToken, refreshToken, profile, done) => {
+      //   const newUser = {
+      //     googleId: profile.id,
+      //     firstName: profile.name.givenName,
+      //     lastName: profile.name.familyName,
+      //     admin: false,
+      //   };
+      //   try {
+      //     let user = await User.findOne({ googleId: profile.id });
+      //     if (user.admin === true) {
+      //       done(null, user);
+      //     }
+      //   } catch (err) {
+      //     console.error(err);
+      //   }
+      // }
     )
   );
 
