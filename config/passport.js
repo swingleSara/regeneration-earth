@@ -15,12 +15,11 @@ module.exports = function (passport) {
           "https://web-production-7ff1.up.railway.app/auth/google/callback",
       },
       async (accessToken, refreshToken, profile, done) => {
-        console.log(profile);
         const newUser = {
           googleId: profile.id,
           firstName: profile.name.givenName,
           lastName: profile.name.familyName,
-          admin: profile.admin,
+          admin: false,
         };
         try {
           let user = await User.findOne({ googleId: profile.id });
