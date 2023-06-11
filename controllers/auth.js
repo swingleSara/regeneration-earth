@@ -25,7 +25,7 @@ exports.postLogin = (req, res, next) => {
   //If the errors array is not empty, show errors
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("/");
+    return res.render("/");
   }
   //Email sanitization
   req.body.email = validator.normalizeEmail(req.body.email, {
@@ -41,7 +41,7 @@ exports.postLogin = (req, res, next) => {
     //If the user doesn't exist, flash error and return to login screen
     if (!user) {
       req.flash("errors", info);
-      return res.redirect("/");
+      return res.render("/");
     }
     //Login
     req.logIn(user, (err) => {
@@ -50,7 +50,7 @@ exports.postLogin = (req, res, next) => {
       }
       //If valid user, redirect to their profile
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "/profile");
+      res.render(req.session.returnTo || "/profile");
     });
   })(req, res, next);
 };
